@@ -15,16 +15,16 @@ Save the code to a file named github_actions_iam.tf
 
 Create a terraform.tfvars file with your specific values:
 
-aws_account_id = "123456789012"</b>
-deployment_bucket_name = "my-app-deployments"</b>
-amplify_app_id = "d123abcd456"  # Your Amplify app ID</b>
-cloudfront_distribution_id = "E1EXAMPLE"  # If using CloudFront</b>
-ecr_repository_name = "my-app"  # If using ECR</b>
-lambda_function_name = "my-function"  # If using Lambda</b>
+aws_account_id = "123456789012"<br/>
+deployment_bucket_name = "my-app-deployments"<br/>
+amplify_app_id = "d123abcd456"  # Your Amplify app ID<br/>
+cloudfront_distribution_id = "E1EXAMPLE"  # If using CloudFront<br/>
+ecr_repository_name = "my-app"  # If using ECR<br/>
+lambda_function_name = "my-function"  # If using Lambda<br/>
 
 Initialize and apply the Terraform configuration:
 
-terraform init</b>
-terraform plan</b>
-terraform apply</b>
+terraform init<br/>
+terraform plan<br/>
+terraform apply<br/>
 This configuration follows the principle of least privilege by specifying exact permissions needed for Amplify operations and limiting them to your specific Amplify application.
