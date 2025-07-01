@@ -12,7 +12,7 @@ Added a new variable amplify_app_id to specify your Amplify application ID for m
 ### How to use this updated Terraform file:
 Save the code to a file named github_actions_iam.tf
 
-### Create a terraform.tfvars file with your specific values:
+### Create a terraform.tf file with your specific values:
 aws_account_id = "123456789012"<br/>
 deployment_bucket_name = "my-app-deployments"<br/>
 amplify_app_id = "d123abcd456"  # Your Amplify app ID<br/>
