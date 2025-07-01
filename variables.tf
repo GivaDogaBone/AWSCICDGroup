@@ -39,3 +39,9 @@ variable "lambda_function_name" {
   default = ""                                    # Default value for the variable
   description = "The type of AWS If using Lambda" # Description of what this variable represents
 }
+
+variable "ec2_instance_id" {
+  type        = string
+  default     = "*"                                    # Default to all instances, but should be restricted in production
+  description = "EC2 instance ID for CI/CD operations"
+}

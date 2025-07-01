@@ -26,6 +26,31 @@ resource "aws_iam_policy" "cicd_policy" {
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
+      # EC2 permissions for CI/CD
+      {
+        Effect = "Allow"
+        Action = [
+          "ec2:DescribeInstances",
+          "ec2:DescribeInstanceStatus",
+          "ec2:DescribeInstanceTypes",
+          "ec2:DescribeImages",
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeVpcs",
+          "ec2:DescribeTags"
+        ]
+        Resource = "*"
+      },
+      # EC2 permissions for specific instances
+      {
+        Effect = "Allow"
+        Action = [
+          "ec2:StartInstances",
+          "ec2:StopInstances",
+          "ec2:RebootInstances"
+        ]
+        Resource = "arn:aws:ec2:${var.aws_region}:${var.aws_account_id}:instance/${var.ec2_instance_id}"
+      },
       # Amplify permissions for CI/CD
       {
         Effect = "Allow"
