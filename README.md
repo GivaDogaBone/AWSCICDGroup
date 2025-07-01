@@ -1,5 +1,5 @@
 # AWSCICDGroup
-AWS IAM Group for CI/CD with GitHub Actions
+New AWS IAM Group for CI/CD with GitHub Actions. This is needed to run manually without using GitHub Actions. This TF file is a prerequisite for implementing any CI/CD using GitHub Actions.
 
 ## Key changes made:
 
