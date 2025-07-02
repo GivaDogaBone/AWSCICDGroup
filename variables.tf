@@ -6,7 +6,8 @@ variable "aws_region" {
 
 variable "aws_account_id" {
   type = string                              # The type of the variable, in this case a string
-  default = "***** Put your AWS Account ID here!!! *****"   # Default value for the variable
+  # default = "***** Put your AWS Account ID here!!! *****"   # Default value for the variable
+  default = "230650864394"   # Default value for the variable
   description = "The type of AWS Account ID" # Description of what this variable represents
 }
 
@@ -14,6 +15,24 @@ variable "deployment_bucket_name" {
   type = string                                      # The type of the variable, in this case a string
   default = ""                                       # Default value for the variable
   description = "The type of AWS my-app-deployments" # Description of what this variable represents
+}
+
+variable "iam_role_id" {
+  type = string                               # The type of the variable, in this case a string
+  default = "*"                               # Default value for the variable
+  description = "The type of AWS IAM Role ID" # Description of what this variable represents
+}
+
+variable "mfa_role_id" {
+  type = string                               # The type of the variable, in this case a string
+  default = "*"                               # Default value for the variable
+  description = "The type of AWS MFA Role ID" # Description of what this variable represents
+}
+
+variable "q_role_id" {
+  type = string                               # The type of the variable, in this case a string
+  default = "*"                               # Default value for the variable
+  description = "The type of AWS Amazon Q Role ID" # Description of what this variable represents
 }
 
 variable "amplify_app_id" {

@@ -26,6 +26,59 @@ resource "aws_iam_policy" "cicd_policy" {
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
+      # IAM permissions to allow IAM operations
+      {
+        Effect = "Allow"
+        Action = [
+          "iam:ListRoles",
+          "iam:GetRole",
+          "iam:GetRolePolicy",
+          "iam:ListAttachedRolePolicies",
+          "iam:ListRolePolicies",
+          "iam:GetAccountSummary",
+          "iam:GetAccountPasswordPolicy",
+          "iam:ListUsers",
+          "iam:GetUser",
+          "iam:ListGroupsForUser",
+          "iam:ListUserPolicies",
+          "iam:ListAttachedUserPolicies",
+          "iam:ListMFADevices",
+          "iam:EnableMFADevice",
+          "iam:ResyncMFADevice",
+          "iam:DeactivateMFADevice",
+          "iam:CreateVirtualMFADevice",
+          "iam:DeleteVirtualMFADevice",
+          "iam:GetLoginProfile",
+          "iam:ListAccessKeys",
+          "iam:ListSigningCertificates",
+          "iam:listVirtualMFADevices",
+          "iam:CreateVirtualMFADevice",
+          "iam:CreateAccessKey",
+          "iam:GetUser",
+          "iam:TagUser",
+          "iam:UpdateAccessKey",
+          "iam:DeleteAccessKey",
+          "iam:GetAccessKeyLastUsed",
+          "iam:ListUserTags",
+          "iam:ListSSHPublicKeys",
+          "iam:ListServiceSpecificCredentials"
+
+        ]
+        "Resource": [
+           "arn:aws:iam::${var.aws_account_id}:mfa/${var.mfa_role_id}",
+           "arn:aws:iam::${var.aws_account_id}:user/${var.iam_role_id}"
+        ]
+      },
+       # Amazon Q permissions for specific instances
+      {
+        Effect = "Allow"
+        Action = [
+         "codewhisperer:*",
+          "q:*",
+          "bedrock:*"
+        ]
+        Resource = var.q_role_id
+      },
       # EC2 permissions for CI/CD
       {
         Effect = "Allow"
