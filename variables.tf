@@ -7,7 +7,6 @@ variable "aws_region" {
 variable "aws_account_id" {
   type = string                              # The type of the variable, in this case a string
   # default = "***** Put your AWS Account ID here!!! *****"   # Default value for the variable
-  default = "230650864394"   # Default value for the variable
   description = "The type of AWS Account ID" # Description of what this variable represents
 }
 
